@@ -1,0 +1,73 @@
+<!--создание/редактирование категории-->
+
+
+<mat-dialog-content>
+  <p mat-dialog-title>{{dialogTitle}}</p>
+
+
+  <mat-form-field>
+    <mat-label>Name (20 symbols)</mat-label>
+    <input
+      #inputTitle
+
+      matInput maxlength="20"
+
+      [(ngModel)]="priority.title"
+      (keydown.enter)="confirm()"
+
+    />
+
+
+    <button
+      *ngIf="priority && priority.title.trim().length > 0"
+
+      class="clear-icon"
+      mat-button matSuffix mat-icon-button aria-label="Clear"
+
+      (click)="priority.title = ''"
+
+    >
+
+
+      <mat-icon>clear</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <span [(colorPicker)]="priority.color" [style.background]="priority.color" class="color-circle"></span>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+
+  <div class="col-12 text-center">
+
+    <button
+      mat-raised-button color="primary"
+      (click)="confirm()"
+      [disabled]="inputTitle.value.trim().length==0"
+    >
+      Save
+    </button>
+
+    <button mat-raised-button (click)="cancel()">Cancel</button>
+
+  </div>
+
+
+  <div class="col-12 text-center">
+
+    <button class="red"
+            mat-button
+            *ngIf="canDelete" (click)="delete()"
+    >
+      Delete
+    </button>
+
+
+  </div>
+
+
+</mat-dialog-actions>
+
+
+

@@ -1,0 +1,46 @@
+<div data-intro="Statistic of done tasks in this category" data-position='bottom' data-step="3"
+     *ngIf="showStat">
+  <div class="row">
+
+
+    <app-stat-card
+      class='col-lg-3 col-md-6 col-sm-6'
+      title="Done tasks"
+      iconName="done"
+      [count1]="getCompletedCount()"
+      [count2]="getTotal()"
+      [completed]="true"
+    >
+    </app-stat-card>
+
+    <app-stat-card
+      class='col-lg-3 col-md-6 col-sm-6'
+      title="Not completed tasks"
+      iconName="thumb_down_alt"
+      [count1]="getUncompletedCount()"
+      [count2]="getTotal()"
+    >
+    </app-stat-card>
+
+
+    <app-stat-card
+      class='col-lg-3 col-md-6 col-sm-6 completed-card'
+      title="% done tasks"
+      iconName="poll"
+      [count1]="getCompletedPercent() | percent"
+      [completed]="true"
+
+    >
+    </app-stat-card>
+
+
+    <app-stat-card
+      class='col-lg-3 col-md-6 col-sm-6'
+      title="% uncompleted tasks"
+      iconName="thumb_down_alt"
+      [count1]="getUncompletedPercent() | percent">
+    </app-stat-card>
+
+
+  </div>
+</div>

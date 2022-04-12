@@ -1,0 +1,28 @@
+<footer class="footer">
+  <div class="container-fluid">
+    <nav class="float-left">
+      <ul>
+        <li>
+          <a [href]="site">
+            Наш сайт
+          </a>
+        </li>
+        <li>
+          <a (click)="openAboutDialog()" class="link">
+            About application
+          </a>
+        </li>
+        <li>
+          <a [href]="blog">
+            Blog
+          </a>
+        </li>
+
+      </ul>
+    </nav>
+    <div class="copyright float-right">* Project for automation&nbsp;&nbsp;
+      © {{year | date: 'yyyy'}} <i class="material-icons">favorite</i>
+      <a [href]="site" target="_blank">{{siteName}}</a>
+    </div>
+  </div>
+</footer>

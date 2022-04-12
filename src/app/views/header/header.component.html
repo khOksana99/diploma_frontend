@@ -1,0 +1,33 @@
+    <div class="container-fluid settings">
+
+        <div class="col-8 text-left align-self-top">
+
+            <button mat-icon-button type="button" (click)="onToggleMenu()">
+
+                <mat-icon>menu</mat-icon>
+
+            </button>
+
+
+            <p class="link navbar-brand" (click)="onToggleStat()" *ngIf="showStat && !isMobile">Hide statistic</p>
+            <p class="link navbar-brand" (click)="onToggleStat()" *ngIf="!showStat && !isMobile">Show statistic </p>
+            <p class="navbar-brand"><span *ngIf="!isMobile">Category:</span> "{{categoryName}}"</p>
+
+        </div>
+
+        <div class="col-4 text-right align-self-top">
+
+            <button mat-icon-button (click)="showSettings()" class="header-icon">
+                <mat-icon>settings</mat-icon>
+            </button>
+
+            <button mat-icon-button (click)="showIntroHelp()" *ngIf="!isMobile" class="header-icon">
+                <mat-icon>help</mat-icon>
+            </button>
+
+
+        </div>
+    </div>
+
+
+

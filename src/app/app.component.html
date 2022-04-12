@@ -1,0 +1,124 @@
+
+<ng-sidebar-container>
+    <ng-sidebar
+
+
+            [opened]="menuOpened"
+            [closeOnClickOutside]="false"
+            [closeOnClickBackdrop]="true"
+            [showBackdrop]="showBackdrop"
+            [mode]="menuMode"
+            [animate]="true"
+            [position]="menuPosition"
+            [autoFocus]="false"
+
+
+            (onClosed)="onClosedMenu()"
+
+
+    >
+
+
+        <div class="sidebar"
+             data-color="purple"
+             data-step="1"
+             data-intro="Tasks filter, add/delete/edit categories"
+             data-position='right'
+        >
+
+            <app-categories
+
+                    (selectCategory)="selectCategory($event)"
+                    (addCategory)="addCategory($event)"
+                    (deleteCategory)="deleteCategory($event)"
+                    (updateCategory)="updateCategory($event)"
+                    (searchCategory)="searchCategory($event)"
+
+
+                    [selectedCategory]="selectedCategory"
+                    [categories]="categories"
+                    [uncompletedCountForCategoryAll]="uncompletedCountForCategoryAll"
+                    [categorySearchValues]="categorySearchValues"
+
+            ></app-categories>
+
+        </div>
+
+    </ng-sidebar>
+
+
+    <div ng-sidebar-content>
+        <div class="main-panel wrapper">
+
+
+
+            <nav class="navbar navbar-transparent navbar-absolute fixed-top navbar-expand">
+
+                <app-header
+                        [categoryName]="selectedCategory ? selectedCategory.title: 'All'"
+                        [showStat]="showStat"
+
+                        (toggleStat)="toggleStat($event)"
+                        (toggleMenu)="toggleMenu()"
+                        (settingsChanged)="settingsChanged($event)"
+
+                >
+
+                </app-header>
+
+
+            </nav>
+
+
+            <div class="content">
+                <div class="container-fluid">
+
+                    <app-stat
+
+                            [dash]="dash"
+                            [showStat]="showStat"
+                    >
+
+                    </app-stat>
+
+
+                    <app-tasks
+
+                            [showSearch]="showSearch"
+                            [totalTasksFounded]="totalTasksFounded"
+                            [tasks]="tasks"
+                            [priorities]="priorities"
+                            [categories]="categories"
+                            [selectedCategory]="selectedCategory"
+                            [taskSearchValues]="taskSearchValues"
+
+
+                            (searchAction)="searchTasks($event)"
+                            (selectCategory)="selectCategory($event)"
+                            (addTask)="addTask($event)"
+                            (deleteTask)="deleteTask($event)"
+                            (updateTask)="updateTask($event)"
+                            (paging)="paging($event)"
+                            (toggleSearch)="toggleSearch($event)"
+
+
+                    >
+
+
+                    </app-tasks>
+
+
+                </div>
+            </div>
+
+
+            <app-footer *ngIf="!isMobile"></app-footer>
+
+
+        </div>
+
+
+    </div>
+
+
+</ng-sidebar-container>
