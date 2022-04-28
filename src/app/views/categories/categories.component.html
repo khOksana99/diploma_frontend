@@ -67,24 +67,6 @@
 
             </div>
 
-            <li class="nav-item category" [class.active]="selectedCategory === null"
-                (click)="showCategory(null)"
-
-            >
-
-                <a class="nav-link">
-
-                    <span class="all-category-title">All</span>
-
-                    <span class="uncompleted-count"> {{uncompletedCountForCategoryAll || 0}}</span>
-
-                </a>
-            </li>
-
-            <div class="line"></div>
-
-            <div *ngIf="!categories || categories.length === 0"><p class="not-found">Nothing found</p></div>
-
             <li
 
                     *ngFor="let category of categories, let index = index"
